@@ -39,7 +39,7 @@ winCounter.innerHTML=countWins;
 // determines if you've won the whole game. If you have(10 wins), 
 // the background changes and the game win count is sent back to zero.
 var marryPutin=function(){
-	if(countWins>1){
+	if(countWins>9){
 		document.body.classList.add("won-game");
 		alert("you and Putin can finally run away together!")
 		countWins=0;
@@ -149,6 +149,7 @@ document.onkeyup = function(event) {
 
 	          // if word is complete, reset Game using resetGame()
 	          if(wordComplete===true){
+	          	alert("You are doing great, your hands aren't tiny at all...")
 	          	resetGame();
 	         
 	          }
@@ -157,11 +158,6 @@ document.onkeyup = function(event) {
   
     };
     getGuesses(userGuess);
- 
-    console.log(displayWord);
-    console.log("correct: "+ correctGuesses);
-    console.log("incorrect: "+ incorrectGuesses);
-    console.log(wordComplete);
 
 
 };
