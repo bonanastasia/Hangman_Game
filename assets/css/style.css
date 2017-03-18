@@ -1,13 +1,68 @@
+
 .wrappper{
- 
+  
   width:100%;
   margin:0 auto;
+  background-color: transparent;
+
 }
 body {
-  background:#ccc;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-  color:white;
-  height:100%;
-  text-align:center;
-  font-size:18px;
+	max-width: 960px;
+	background-image: url("../images/big_brother_trump.jpg");
+	background-size: cover;
+	font-family: 'Playfair Display', serif;
+	color:white;
+	height:100%;
+	text-align:center;
+	font-size:18px;
+	margin:10px;
 }
+
+h1{
+	font-size: 36px;
+}
+
+h2{
+	font-size:24px;
+	margin: 0 auto;
+}
+
+.instructions{
+	display: flex;
+    justify-content: center;
+}
+h4{
+	font-size: 16px;
+	width:400px;
+}
+
+body.won-game{
+	background-image: url("../images/putin_trump.jpg");
+	background-size: cover;
+}
+body.lost-game{
+	background-image: url("../images/tiny_hands.png"); ;
+	background-size: cover;
+}
+
+#reset{
+	background-color: white;
+	color: black;
+	margin:0 auto;
+}
+
+#impeach{
+	font-weight: bold;
+	font-size: 85px;
+	text-align:center;
+	background-color: tomato;
+	width: 100%;
+	height: 300px;
+	margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 65px;
+	display: none;
+}
+
+
