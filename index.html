@@ -13,36 +13,49 @@
 <script src="assets/javascript/game.js" type="text/javascript"></script>
 </head>
 
-<body>
+<body onload = "startGame()">
 
-  <div class="jumbotron">
-    
-    <div class="row">
-      
-      <div class="col-md-6">
-        <p>image goes in this column!</p>
-      </div>
+  <div class="wrapper">
+   <h1>Hangman</h1>
+    <h2>Press any key to begin!</h2>
+    <p> </p>
+</div>
 
-      <div class="col-md-6" id="right-column">
-        <p>Press any key to start!</p>
-        <br>
-        <p>wins</p>
-        <br>
-        <p>losses</p>
-        <br>
-        <br>
-        <h3>current word</h3>
-        <p>_ _ _ _ _ _</p>
-        <br>
-        <h3>number of guesses</h3>
-        <p>14</p>
-        <br>
-        <h3>letters guessed</h3>
-        <p>a d g v u</p>
-      </div>
-
-    </div>
+<div class="wrapper">
+    <div id="blanks">
+     <p id="placeholder-word">?</p>
+  
   </div>
+   <div>
+    <h3>Correct letters guessed:</h3>
+    <span id="right-guesses">.</span>
+  </div>
+
+   <div>
+
+    <h3>Incorrect letters guessed:</h3>
+    <span id="wrong-guesses">.</span>
+
+  </div>
+
+   <div id="guesses-remaining">
+      
+     <h3 id="guessesLeft">Tweets left to defend yourself:</h3>
+     <span id="guesses-remaining-count"></span>
+  
+  </div>
+
+   <div id="wins">
+      
+     <h3 id = "victories">Victories against the liberal, fake news.</h3>
+     <span id= "win-count" >.</span>
+  
+  </div>
+
+  <div class = "container">
+      <button id="reset">Play again</button>
+  </div>
+
 
 </body>
 </html>

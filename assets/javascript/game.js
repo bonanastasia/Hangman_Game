@@ -5,6 +5,7 @@
 
 
 
+
 //something to hold words (array)
 var wordChoices = ["wordon", "wordtwo", "wordthree" ];
 //some way to randomly select a word from the array (Math.floor(Math.random()*array.length))
@@ -94,10 +95,8 @@ var wordComplete=false;
 // 			incorrectGuesses += c;
 // 	};
 // };
+countWins=0;
 
-var gameReset= function(){
-	initialVariables();
-}
 
 
 // var isWordComplete= function(){
@@ -119,31 +118,59 @@ var gameReset= function(){
 
 
 var startGame= function(){
+ //get element from html & connect	
+var placeholdersWord = document.getElementById("placeholder-word"); 
+var rightGuesses = document.getElementById("right-guesses");
+var wrongGuesses = document.getElementById("wrong-guesses");
+var remainingGuesses = document.getElementById("guesses-remaining-count");
+var resetButton = document.getElementById("reset");
+var winCounter =  document.getElementById("win-count");
 
+resetButton.onclick= reloadPage;
+
+function reloadPage(){
+   window.location.reload();
+};
+
+winCounter.innerHTML=countWins;
+
+var marryPutin=function(){
+	if(countWins>1){
+		alert("you and Putin can finally run away together!")
+		countWins=0;
+		var playAgain=confirm("would you like to play again?");
+			if(playAgain){
+				window.location.reload();
+
+			};
+		
+	};
+};
 //a counter for losses (var countLosses)
 //derive from incorrect guesses
-var guessesLeft6;
+var guessesLeft=6;
 var displayWord=[];
 var correctGuesses=[];
 var incorrectGuesses=[];
-//take correctGuesses and currentWord, compare with loop
-    //use myString.split('')
-//something to hold the "skeleton" (letter holders)
-
-//compare skeletonWord to presence of placeholders
 var wordComplete=false;
 
 var getGuesses = function(c){
 		if(correctGuesses.indexOf(c)===-1 && displayWord.indexOf(c)!=-1){
 			correctGuesses+=c;
-		}else if(correctGuesses.indexOf(c)===-1 && alphabet.includes(c)){
+			rightGuesses.innerHTML = correctGuesses;
+
+		}else if(incorrectGuesses.indexOf(c)===-1 && alphabet.includes(c)){
 			incorrectGuesses += c;
+			wrongGuesses.innerHTML = incorrectGuesses;
+			remainingGuesses.innerHTML=guessesLeft-incorrectGuesses.length;
+
 	};
 };
 var isWordComplete= function(){
 	displayWord.forEach(function(){
 		if(displayWord.indexOf("_")===-1){
 			wordComplete=true;
+
 
 		}else{
 			wordComplete=false;
@@ -153,7 +180,9 @@ var isWordComplete= function(){
 
 var resetGame= function(){
 	countWins++;
-	window.location.reload();
+	marryPutin();
+	startGame();
+
 }
 
  generateWord();
@@ -164,6 +193,7 @@ var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
 for (var i = 0; i < currentWord.length; i++) {
 displayWord[i] = "_";
+placeholdersWord.innerHTML = displayWord;
 };
 
 
@@ -194,9 +224,11 @@ document.onkeyup = function(event) {
         //unique character
     if(userGuess === currentWord.charAt(i)){
           displayWord[i] = userGuess;
+          placeholdersWord.innerHTML = displayWord;
           isWordComplete();
           if(wordComplete===true){
           	resetGame();
+          	// marryPutin();
           }
 	   };
 
